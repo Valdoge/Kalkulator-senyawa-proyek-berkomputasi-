@@ -102,7 +102,7 @@ st.set_page_config(page_title="Kalkulator Massa Senyawa", layout="centered")
 st.title("🧪 Kalkulator Massa Senyawa")
 
 # Header Image
-img = Image.open("images/mahiru.jpg")  # path sesuai folder proyek
+img = Image.open("images/mahiru.jpg")  
 st.image(img, use_container_width=True)
 
 # Deskripsi
