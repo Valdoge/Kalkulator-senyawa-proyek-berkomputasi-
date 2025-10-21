@@ -1,5 +1,7 @@
+# NAMA: VALDO
+# NAMA ISTRI VALDO: MAHIRU SHIINA
 # ==============================================
-# KALKULATOR MASSA SENYAWA (Streamlit UI)
+# KALKULATOR MASSA SENYAWA 
 # ==============================================
 
 import streamlit as st
