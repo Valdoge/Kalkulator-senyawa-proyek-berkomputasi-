@@ -4,7 +4,7 @@
 
 import streamlit as st
 import re
-
+from PIL import Image
 # ====== Kamus massa atom ======
 massa_atom = {
     "H":1.008,"He":4.0026,"Li":6.94,"Be":9.0122,"B":10.81,"C":12.011,"N":14.007,"O":15.999,
@@ -95,21 +95,28 @@ def compute_total_molar_mass(formula: str) -> float:
 
 # ====== Streamlit UI ======
 st.set_page_config(page_title="Kalkulator Massa Senyawa", layout="centered")
-st.title("🧪 Kalkulator Massa Senyawa")
 
+# Judul web di atas header
+st.title("🧪 Kalkulator Massa Senyawa (Mahiru cakep euy)")
+
+# Header Image
+img = Image.open("images/mahiru.jpg")  # path sesuai folder proyek
+st.image(img, use_container_width=True)
+
+# Deskripsi
 st.write("Masukkan rumus senyawa kimia (misal: CuSO4·5H2O atau H2O) dan pilih konversi:")
 
 # Input rumus
 raw_formula = st.text_input("Rumus Senyawa", "")
 
-# Pilih mode
+# Pilih mode konversi
 mode = st.radio("Pilih Mode Konversi:", ("Mol → Gram", "Gram → Mol"))
 
-# Input jumlah mol atau gram
+# Input jumlah mol/gram dengan 10 digit desimal
 if mode == "Mol → Gram":
-    input_amount = st.number_input("Jumlah Mol", min_value=0.0, value=1.0, step=0.1)
+    input_amount = st.number_input("Jumlah Mol", min_value=0.0, value=1.0, step=0.1, format="%.10f")
 else:
-    input_amount = st.number_input("Jumlah Gram", min_value=0.0, value=1.0, step=0.1)
+    input_amount = st.number_input("Jumlah Gram", min_value=0.0, value=1.0, step=0.1, format="%.10f")
 
 # Tombol Hitung
 if st.button("Hitung"):
@@ -119,10 +126,10 @@ if st.button("Hitung"):
         if mode == "Mol → Gram":
             result = input_amount * mm
             st.success(f"Massa molar: {mm:.5f} g/mol")
-            st.info(f"{input_amount} mol → {result:.5f} gram")
+            st.info(f"{input_amount:.10f} mol → {result:.10f} gram")
         else:
             result = input_amount / mm
             st.success(f"Massa molar: {mm:.5f} g/mol")
-            st.info(f"{input_amount} gram → {result:.5f} mol")
+            st.info(f"{input_amount:.10f} gram → {result:.10f} mol")
     except ValueError as e:
         st.error(f"❌ Error: {e}")
