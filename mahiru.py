@@ -97,7 +97,7 @@ def compute_total_molar_mass(formula: str) -> float:
 st.set_page_config(page_title="Kalkulator Massa Senyawa", layout="centered")
 
 # Judul web di atas header
-st.title("🧪 Kalkulator Massa Senyawa (Mahiru cakep euy)")
+st.title("🧪 Kalkulator Massa Senyawa")
 
 # Header Image
 img = Image.open("images/mahiru.jpg")  # path sesuai folder proyek
