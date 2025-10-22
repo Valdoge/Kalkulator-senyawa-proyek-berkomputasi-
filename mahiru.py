@@ -103,7 +103,7 @@ st.title("🧪 Kalkulator Massa Senyawa")
 
 # Header Image
 img = Image.open("images/mahiru.jpg")  
-st.image(img, width="stretch")
+st.image(img, width='stretch')
 
 # Deskripsi
 st.write("Masukkan rumus senyawa kimia (misal: CuSO4·5H2O atau H2O) dan pilih konversi:")
